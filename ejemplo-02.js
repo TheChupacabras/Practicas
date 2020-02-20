@@ -13,6 +13,6 @@ test.onclick = () => {
 
   //-- Ya tiene color: quitarselo
   } else {
-    teest.style.backgroundColor = "";
+    test.style.backgroundColor = "";
   }
 }
