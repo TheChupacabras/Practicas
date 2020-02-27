@@ -1,59 +1,33 @@
 console.log("Ejecutando JS...");
 
-//-- Crear objeto gui, con los elementos de la interfaz gráfica
-//-- Al tenerlo agrupado podemos pasarlo como parámetro o asignárselo
-//-- a otro objeto
-const gui = {
+display = document.getElementById("display")
+boton1 = document.getElementById("boton1")
+boton2 = document.getElementById("boton2")
+suma = document.getElementById("suma")
+igual = document.getElementById("igual")
+clear = document.getElementById("clear")
 
-  //-- Elementos gui del contador 1
-  display1: document.getElementById("display1"),
-  boton_inc1: document.getElementById("boton_inc1"),
-  boton_dec1: document.getElementById("boton_dec1"),
-
-  //-- Elementos gui del contador 2
-  display2: document.getElementById("display2"),
-  boton_inc2: document.getElementById("boton_inc2"),
-  boton_dec2: document.getElementById("boton_dec2"),
+// -- Insertar digito 1
+boton1.onclick = () => {
+  display.innerHTML += "1";
 }
 
-//-- Constructor del objeto contador
-//-- Se le pasa como parametro su display
-function counter(display)
-{
-  this.valor = 0;
-
-  //-- Almacenar su display
-  this.display = display;
-
-  //-- Actualizar el contador
-  //-- y mostrarlo en el display
-  this.inc = (value) => {
-    this.valor += value;
-    this.display.innerHTML = this.valor;
-  }
+//-- Insertar digito 2
+boton2.onclick = () => {
+  display.innerHTML += "2";
 }
 
-//-- Crear los dos objetos contadores
-const c1 = new counter(gui.display1);
-const c2 = new counter(gui.display2);
-
-//-------- Accciones:
-//-- Contador 1: Incrementar contador
-gui.boton_inc1.onclick = () => {
-  c1.inc(1);
+//-- Insertar simbolo de sumar
+suma.onclick = () => {
+  display.innerHTML += "+";
 }
 
-//-- Decrementar contador
-gui.boton_dec1.onclick = () =>{
-  c1.inc(-1);
+//-- Evaluar la expresion
+igual.onclick = () => {
+  display.innerHTML = eval(display.innerHTML);
 }
 
-//-- Contador 2: Incrementar contador
-gui.boton_inc2.onclick = () => {
-  c2.inc(1);
-}
-
-//-- Decrementar contador
-gui.boton_dec2.onclick = () =>{
-  c2.inc(-1);
+//-- Poner a cero la expresion
+clear.onclick = () => {
+  display.innerHTML = "0";
 }
